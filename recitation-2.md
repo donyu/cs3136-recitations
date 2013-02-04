@@ -125,6 +125,42 @@ clean:
 all: clean main
 ```
 
+### Exercise ###
+
+1. When I run make in my directory I get the following output.
+
+```unix
+ ˜/cs3157/lab1$ make 
+    gcc -g -Wall    -c -o main.o main.c
+    gcc -g -Wall    -c -o myadd.o myadd.c
+    gcc -g  main.o myadd.o   -o main
+```
+
+The Makefile in that same directory is shown here, with the build rules
+removed.  Fill in the missing lines, specifying targets and
+dependencies that are consistent with the CLIC lab session shown
+above.
+
+Fill in only targets and dependencies.  That is, do not write the gcc
+commands that come below the target/dependency lines.  Rely on the
+implicit rules that make knows by default.
+
+```make
+    CC  = gcc
+    CXX = g++
+    INCLUDES =
+    CFLAGS   = -g -Wall $(INCLUDES)
+    CXXFLAGS = -g -Wall $(INCLUDES)
+    LDFLAGS = -g
+    LDLIBS =
+
+    # Fill in the missing targets and dependencies here
+
+    .PHONY: clean
+    clean:
+            rm -f *.o *˜ a.out core main
+```
+
 ## C data types ##
 
 While C provides many basic data types, the one's that you'll mostly be concerned about are char, short, int, and long. The memory sizes for each type is system specific (different from Java where primitive memory sizes are language defined). 
@@ -201,38 +237,4 @@ int main(int argc, char **argv) {
 	int y = 0xffffffff;
 	printf("%d\n", x + y);
 }
-```
-
-3. When I run make in my directory I get the following output.
-
-```unix
- ˜/cs3157/lab1$ make 
-    gcc -g -Wall    -c -o main.o main.c
-    gcc -g -Wall    -c -o myadd.o myadd.c
-    gcc -g  main.o myadd.o   -o main
-```
-
-The Makefile in that same directory is shown here, with the build rules
-removed.  Fill in the missing lines, specifying targets and
-dependencies that are consistent with the CLIC lab session shown
-above.
-
-Fill in only targets and dependencies.  That is, do not write the gcc
-commands that come below the target/dependency lines.  Rely on the
-implicit rules that make knows by default.
-
-```make
-    CC  = gcc
-    CXX = g++
-    INCLUDES =
-    CFLAGS   = -g -Wall $(INCLUDES)
-    CXXFLAGS = -g -Wall $(INCLUDES)
-    LDFLAGS = -g
-    LDLIBS =
-
-    # Fill in the missing targets and dependencies here
-
-    .PHONY: clean
-    clean:
-            rm -f *.o *˜ a.out core main
 ```
