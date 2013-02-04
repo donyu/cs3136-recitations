@@ -107,7 +107,7 @@ doesn't attempt to use implicit rules or try to compile them. The first target
 we make is "clean" which should remove all intermediate files. *Always include a
 clean* so that `make clean` can be used to remove intermediate files like object
 files, compiled code, etc. This should return your directory to just its source
-code that can generate all the other files. *Be careful:* Using `rm -r` will not
+code that can generate all the other files. *Be careful:* Using `rm -f` will not
 prompt you to remove files. This is customary for `make clean` but it also means
 if you make a mistake in designing your rule it could remove files that you
 didn't want to. There is no "trash" in UNIX - they'll be gone forever.
@@ -201,4 +201,38 @@ int main(int argc, char **argv) {
 	int y = 0xffffffff;
 	printf("%d\n", x + y);
 }
+```
+
+3. When I run make in my directory I get the following output.
+
+```unix
+ ˜/cs3157/lab1$ make 
+    gcc -g -Wall    -c -o main.o main.c
+    gcc -g -Wall    -c -o myadd.o myadd.c
+    gcc -g  main.o myadd.o   -o main
+```
+
+The Makefile in that same directory is shown here, with the build rules
+removed.  Fill in the missing lines, specifying targets and
+dependencies that are consistent with the CLIC lab session shown
+above.
+
+Fill in only targets and dependencies.  That is, do not write the gcc
+commands that come below the target/dependency lines.  Rely on the
+implicit rules that make knows by default.
+
+```make
+    CC  = gcc
+    CXX = g++
+    INCLUDES =
+    CFLAGS   = -g -Wall $(INCLUDES)
+    CXXFLAGS = -g -Wall $(INCLUDES)
+    LDFLAGS = -g
+    LDLIBS =
+
+    # Fill in the missing targets and dependencies here
+
+    .PHONY: clean
+    clean:
+            rm -f *.o *˜ a.out core main
 ```
