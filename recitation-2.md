@@ -135,6 +135,11 @@ All data is represented in binary, so let's take a quick review of it. The binar
 
 Compared to the base-10 number system every digit in a binary number reflects 2 to some power. So 1010 will be (1 * 2^3 + 1 * 2^1) just as 304 is (3 * 10^2 + 4 * 10^0).
 
+```
+1010 = 1 * 2^3 + 1 * 2^1 = 10
+0110 = 1 * 2^2 + 1 * 2^1 = 5
+```
+
 ### 2's complement system ###
 
 2's complement is used to represent signed integers in binary. Why is this? Well we don't have a negative sign when everything is just 1's and 0's, so we need to think of another way to representing negative numbers.
@@ -165,17 +170,18 @@ Following the same layout as binary, we now have the following digit possibilite
 Each digit place now corresponds to 16 to some power i.e. AE = (10 * 16^1 + 14 * 16^0). Also it's really important to note that each hexidecimal digit corresponds to a 4 digit binary number!
 
 ```
-A = 1010
-B = 1011
-C = 1100
-D = 1101
-E = 1110
-F = 1111
+A = 1010 = 10
+B = 1011 = 11
+C = 1100 = 12
+D = 1101 = 13
+E = 1110 = 14
+F = 1111 = 15
 ```
 
 ### Exercises ###
 
 1. Evaluate the following
+
 	a. 1001 in 2's complement
 	b. 11111110 in 2's complement
 	c. 0110 in 2's complement
