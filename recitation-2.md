@@ -135,7 +135,7 @@ All data is represented in binary, so let's take a quick review of it. The binar
 
 Compared to the base-10 number system every digit in a binary number reflects 2 to some power. So 1010 will be (1 * 2^3 + 1 * 2^1) just as 304 is (3 * 10^2 + 4 * 10^0).
 
-```
+```c
 1010 = 1 * 2^3 + 1 * 2^1 = 10
 0110 = 1 * 2^2 + 1 * 2^1 = 5
 ```
@@ -169,7 +169,7 @@ Following the same layout as binary, we now have the following digit possibilite
 
 Each digit place now corresponds to 16 to some power i.e. AE = (10 * 16^1 + 14 * 16^0). Also it's really important to note that each hexidecimal digit corresponds to a 4 digit binary number!
 
-```
+```c
 A = 1010 = 10
 B = 1011 = 11
 C = 1100 = 12
@@ -183,7 +183,9 @@ F = 1111 = 15
 1. Evaluate the following
 
 	a. 1001 in 2's complement
+
 	b. 11111110 in 2's complement
+	
 	c. 0110 in 2's complement
 
 2. What is the output of the following program?
