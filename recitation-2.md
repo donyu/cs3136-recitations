@@ -131,7 +131,7 @@ While C provides many basic data types, the one's that you'll mostly be concerne
 
 ### Binary numbers ###
 
-All data is represented in binary, so let's take a quick review of it. The binary number system is just a base-2 number system as apposed to the base-10 decimal system we are all so used to. 
+All data is represented in binary, so let's take a quick review of it. The binary number system is just a base-2 number system as opposed to the base-10 decimal system we are all so used to. 
 
 Compared to the base-10 number system every digit in a binary number reflects 2 to some power. So 1010 will be (1 * 2^3 + 1 * 2^1) just as 304 is (3 * 10^2 + 4 * 10^0).
 
@@ -142,9 +142,9 @@ Compared to the base-10 number system every digit in a binary number reflects 2 
 
 ### 2's complement system ###
 
-2's complement is used to represent signed integers in binary. Why is this? Well we don't have a negative sign when everything is just 1's and 0's, so we need to think of another way to representing negative numbers.
+2's complement is used to represent signed integers in binary. Why is this? Well we don't have a negative sign when everything is just 1's and 0's, so we need to think of another way to represent negative numbers.
 
-Let's first start by explaining what each bit represents within 2's complement. Actually, every bit is the same except for the last bit which now represents the NEGATIVE value of the value of that bit.
+Let's first start by explaining what each bit represents within 2's complement. Actually, every bit is the same except for the first bit which now represents the NEGATIVE value of the value of that bit.
 
 ```c
 0101 = 4 + 1 = 5
@@ -154,18 +154,21 @@ Let's first start by explaining what each bit represents within 2's complement. 
 Looking closely, we see that the only difference in 2's complement is that the first binary digit represents a negative value now! 
 
 A quick way to get the value of a 2's complement binary number is as follows.
+
 	1. If given a 2's complement number with a leading 1 such as 1010 we will first flip every bit to get 0101
+
 	2. Now evaluate the value of the resulting binary number normally i.e. 0101 = 5
+
 	3. Now add 1 to that value i.e. 5 + 1 = 6, and make it negative i.e. 6 -> -6
 
 A 2's complement number with a leading 0 should be evaluated the same as any other binary number.
 
 ### Hexadecimals ###
 
-Hexidecimals is yet another common way of representing number. Now it's base-16 and has letters to represent more digits!
+Hexidecimals is yet another common way of representing numbers. Except now it's base-16 and has letters to represent more digits!
 
 Following the same layout as binary, we now have the following digit possibilites:
-	1, 2, 3, 4, 5, 6, 7, 8, 9, A (equal to 10), B (equal to 11), C (equal to 12), D (equal to 13), E (equal to 14), F (equal to 15)
+	0, 1, 2, 3, 4, 5, 6, 7, 8, 9, A (equal to 10), B (equal to 11), C (equal to 12), D (equal to 13), E (equal to 14), F (equal to 15)
 
 Each digit place now corresponds to 16 to some power i.e. AE = (10 * 16^1 + 14 * 16^0). Also it's really important to note that each hexidecimal digit corresponds to a 4 digit binary number!
 
@@ -185,7 +188,7 @@ F = 1111 = 15
 	a. 1001 in 2's complement
 
 	b. 11111110 in 2's complement
-	
+
 	c. 0110 in 2's complement
 
 2. What is the output of the following program?
