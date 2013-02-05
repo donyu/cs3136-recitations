@@ -127,10 +127,20 @@ all: clean main
 
 ### Exercise ###
 
-1. When I run make in my directory I get the following output.
+1. I go through the following steps on clic and get the following output.
 
 ```unix
- ˜/cs3157/lab1$ make 
+˜/cs3157/lab1$ ls
+    main.c  Makefile  myadd.c  myadd.h  README.txt
+
+˜/cs3157/lab1$ make 
+    gcc -g -Wall    -c -o main.o main.c
+    gcc -g -Wall    -c -o myadd.o myadd.c
+    gcc -g  main.o myadd.o   -o main
+
+˜/cs3157/lab1$ touch myadd.h 
+
+˜/cs3157/lab1$ make 
     gcc -g -Wall    -c -o main.o main.c
     gcc -g -Wall    -c -o myadd.o myadd.c
     gcc -g  main.o myadd.o   -o main
