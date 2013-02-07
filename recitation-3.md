@@ -26,7 +26,7 @@ It's important for us to think about what we're representing when we store a val
 int i = 141;
 char j = (char) i;
 printf("value of i: %d\n", i); // %d prints ints
-printf("value of j: %c\n, j); // %c prints chars
+printf("value of j: %c\n", j); // %c prints chars
 ```
 
 First, the notation `(char)` means "cast the `int` 5 as a `char`" or convert a variable of one type to another type. You can safetly perform this action if you are converting from smaller to larger data types since we know there will be room for all the bits in the original variable. However, when casting from a larger data type to a smaller one, you have to be careful or else you'll lose information.
@@ -44,7 +44,7 @@ All an array is a fixed size list of a particular type. We can have an array of 
 
 Arrays are delcared by writing `int my_array[10]`. We then can assign `int`s to any slot in the array by writing `my_array[6] = 10`.
 
-In java or python when you declare an array all the elements of the array are set to some default value, for an `int` array it would be zero. However, in C depending on how you declare the array there could be different values in the array. If you declared the array `static` then you can safetly assume only zeros in an `int` array. However, if you declare the array on the stack or heap (more about this later) you can't assume anything about the values in the array and have to treat them as garbage until you modify them.
+In java or python when you declare an array all the elements of the array are set to some default value, for an `int` array it would be zero. However, in C depending on how you declare the array there could be different values in the array. If you declared the array `static` then you can safetly assume only zeros in an `int` array. On the other hand, if you declare the array on the stack or heap (more about this later) you can't assume anything about the values in the array and have to treat them as garbage until you modify them.
 
 There is a nice sytax to set the contents of the array on initialization. You can intialize all elements to `0` by writing:
 
@@ -53,7 +53,8 @@ There is a nice sytax to set the contents of the array on initialization. You ca
 Also, if you want to set some elements to specific values you can write:
 
 ```c
-int my_array[10] = { 1, 2, 3 } // the first three elements will be set to 1, 2, 3 respectively and the rest will be set to 0 
+int my_array[10] = { 1, 2, 3 } // the first three elements will be set to 1, 2, 3 respectively
+                               // and the rest will be set to 0 
 ```
 
 ### Strings, or lack thereof ###
