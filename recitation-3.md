@@ -83,7 +83,22 @@ int getNewAccountNumber()
 ```
 ### Recursion ###
 
-I'll update this after the recitation.  Fibonacci Example.
+In recursive programming, a function calls upon itself.
+Typically, a recursive function consists of a base case(s) and inductive steps.
 
+The fibonacci sequence is a sequence of numbers where the 0th number is 0, the first number is 1, and every number after that is equal to the sum of the previous two.
+The following recursive function can be used to obtain the nth number of the fibonacci sequence:
+
+```c
+int getFib(int n)
+{
+   if (n == 0)
+      return 0;
+   else if (n == 1)
+      return 1;
+   else
+      return (getFib(n-1) + Fibonacci(n-2));
+} 
+```
 
 
