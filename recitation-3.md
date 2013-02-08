@@ -60,3 +60,30 @@ int my_array[10] = { 1, 2, 3 } // the first three elements will be set to 1, 2, 
 ### Strings, or lack thereof ###
 
 C is an interesting language in that there is no built-in data type for strings. But, that doesn't stop us, we can just represent a string as an array of `char`s terminated by the `NULL` character. It would be a little cumbersome to have to work with strings as an array, so once we learn about pointers in more detail we'll discuss special string syntax and how to use them.
+
+### Automatic Variables ###
+
+Automatic variables are variables that have a scope of a block, like local variables in Java.
+
+### Static Variables ###
+
+Static variables are useful when you would like to be able to access a variable in a certain scope during the entire lifetime of a program.
+
+As mentioned in the class notes, the scope of a static variable depends on where it is declared (global, file, or block).
+
+A static variable would come in handy in a bank account program to ensure that every account number was unique:
+
+```c
+int getNewAccountNumber()
+{
+  static int acctCount = 0;
+  acctCount++;
+  return acctCount;
+}
+```
+### Recursion ###
+
+I'll update this after the recitation.  Fibonacci Example.
+
+
+
