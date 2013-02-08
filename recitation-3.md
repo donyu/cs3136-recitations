@@ -23,7 +23,7 @@ This will print out `"true!"` for any value of `i` other than zero.
 It's important for us to think about what we're representing when we store a value in a `char`. The character we store does not equal the underlying integer value. `\`1\` != 1`, and equally, `\`0\` != 0`. Let's look at an example.
 
 ```c
-int i = 141;
+int i = 97;
 char j = (char) i;
 printf("value of i: %d\n", i); // %d prints ints
 printf("value of j: %c\n", j); // %c prints chars
@@ -33,10 +33,10 @@ First, the notation `(char)` means "cast the `int` 5 as a `char`" or convert a v
 
 Now, what does this program do? It print's out two lines:
 
-    value of i: 141
+    value of i: 97
     value of j: a
 
-Huh? What just happened? We are seeing the difference between the underlying value of `j` and the character that that value signifies. So now we know that in ASCII (a character encoding), 141 = a.
+Huh? What just happened? We are seeing the difference between the underlying value of `j` and the character that that value signifies. So now we know that in ASCII (a character encoding), 97 = a.
 
 ### Arrays ###
 
@@ -68,7 +68,6 @@ Automatic variables are variables that have a scope of a block, like local varia
 ### Static Variables ###
 
 Static variables are useful when you would like to be able to access a variable in a certain scope during the entire lifetime of a program.
-
 As mentioned in the class notes, the scope of a static variable depends on where it is declared (global, file, or block).
 
 A static variable would come in handy in a bank account program to ensure that every account number was unique:
@@ -76,7 +75,7 @@ A static variable would come in handy in a bank account program to ensure that e
 ```c
 int getNewAccountNumber()
 {
-  static int acctCount = 0;
+  static int acctCount = 0; // acctCount is declared and defined as 0 the first time the function is called
   acctCount++;
   return acctCount;
 }
@@ -84,7 +83,7 @@ int getNewAccountNumber()
 ### Recursion ###
 
 In recursive programming, a function calls upon itself.
-Typically, a recursive function consists of a base case(s) and inductive steps.
+Typically, a recursive function consists of a base case(s) and recursive steps.
 
 The fibonacci sequence is a sequence of numbers where the 0th number is 0, the first number is 1, and every number after that is equal to the sum of the previous two.
 The following recursive function can be used to obtain the nth number of the fibonacci sequence:
@@ -92,11 +91,11 @@ The following recursive function can be used to obtain the nth number of the fib
 ```c
 int getFib(int n)
 {
-   if (n == 0)
+   if (n == 0)         // base case 1
       return 0;
-   else if (n == 1)
+   else if (n == 1)    // base case 2
       return 1;
-   else
+   else                // recursive step
       return (getFib(n-1) + Fibonacci(n-2));
 } 
 ```
