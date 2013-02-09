@@ -99,5 +99,5 @@ int getFib(int n)
       return (getFib(n-1) + Fibonacci(n-2));
 } 
 ```
-
+Bonus: Now that you've learned about arrays, can you think of another way to implement the recursive getFib() function with a faster runtime?
 
