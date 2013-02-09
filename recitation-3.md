@@ -96,7 +96,7 @@ int getFib(int n)
    else if (n == 1)    // base case 2
       return 1;
    else                // recursive step
-      return (getFib(n-1) + Fibonacci(n-2));
+      return (getFib(n-1) + getFib(n-2));
 } 
 ```
 Bonus: Now that you've learned about arrays, can you think of another way to implement the recursive getFib() function with a faster runtime?
