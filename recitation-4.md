@@ -5,13 +5,16 @@
 ### Make a Data Structures Directory ###
 
 If you haven't already, please make a 3136 directory on your clic account with the following command in your home directory:
+
     mkdir 3136
 Change into the directory with the command:
+
     cd 3136
 
 ### Configuring git ###
 
 So in order to use git, you must first let it know who you are.  Do this by telling git your name and email:
+
     git config --global user.name "Jae Woo Lee" 
     git config --global user.email jae@cs.columbia.edu
 
