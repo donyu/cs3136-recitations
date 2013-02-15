@@ -93,6 +93,49 @@ from the lab1 directory.
 
 Write merge() function for mergesort().
 
+```c
+/*
+ * Merge-sort an array a, which contains n elements.
+ */
+void merge_sort(char a[], int n)
+{
+    // BASIS: if a has only 1 element, there is nothing to do.
+    if (n <= 1) {
+        return;
+    }
+
+    // INDUCTION: merge_sort the 1st half and merge_sort the 2nd half 
+    // so that we have 2 half-size sorted arrays, and then merge them 
+    // into a single sorted list.
+
+    int m = n / 2;
+
+    // merge_sort the 1st m elements of a
+    merge_sort(a, m);
+
+    // merge_sort the remaining n - m elements of the array "a + m",
+    // which is a way to take a sub-array of "a" where a[m] is the new 
+    // 0th element (i.e., (a+m)[0] is the same as a[m]).
+    merge_sort(a + m, n - m);
+
+    // allocated a temporary array into which the merge function will 
+    // put the merged array.
+    char temp[n];
+
+    // merge a (for which we are looking at only the 1st m elements)
+    // and a+m (which has n-m elements from (a+m)[0] to (a+m)[n-m-1],
+    //          which are really the same as a[m] to a[n-1])
+    // into the temp array.
+    merge(a, m, a + m, n - m, temp);
+
+    // copy the temp array back into a.
+    int i;
+    for (i = 0; i < n; i++) {
+        a[i] = temp[i];
+    }
+}
+```
+
 ### Pointers ###
 
 A pointer is a data type whose value is an address in memory.  The value "points" to another value stored in that memory location.
