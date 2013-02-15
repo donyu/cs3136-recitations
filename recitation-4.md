@@ -118,3 +118,43 @@ To access the address of a variable, we use an &.
     y = &5;
 ```    
 This tells y to point to the address of the int x.
+
+### Pointer Example ###
+
+What do you think will be printed in the following example?
+```c
+#include <stdio.h>
+
+int main(int argc, char **argv)
+{
+    int i,j;
+    int *x;
+    int *y;
+    char a,b;
+    char *k;
+    
+    i = 7;
+    j = 97;
+    x = i;
+    y = &j;
+    a = 'a';
+    *k = a;
+    b = *k;
+    a = (char)j;
+    
+    if (a == b)
+    {
+        printf("a and b are equal!");
+    }
+    
+    printf("i equals %d\n", i);
+    printf("j equals %d\n", j);
+    printf("the value stored in x equals %d\n", *x);
+    printf("the value stored in y equals %d\n", *y);
+    printf("a equals %c\n", a);
+    printf("b equals %c\n", b);
+    printf("the value stored in k equals %c\n", *k);
+    
+    return 0;
+}
+```
