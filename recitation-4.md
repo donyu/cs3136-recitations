@@ -132,7 +132,7 @@ int main(int argc, char **argv)
     int *y;
     char a,b;
     char *k;
-    
+
     i = 7;
     j = 97;
     x = i;
@@ -140,21 +140,23 @@ int main(int argc, char **argv)
     a = 'a';
     *k = a;
     b = *k;
+    a = 'c';
     a = (char)j;
-    
+
     if (a == b)
     {
-        printf("a and b are equal!");
+        printf("a and b are equal!\n");
     }
-    
+
     printf("i equals %d\n", i);
     printf("j equals %d\n", j);
-    printf("the value stored in x equals %d\n", *x);
     printf("the value stored in y equals %d\n", *y);
     printf("a equals %c\n", a);
     printf("b equals %c\n", b);
     printf("the value stored in k equals %c\n", *k);
-    
+    printf("the value of x equals %d\n", x);
+    printf("the value stored in x equals %d\n", *x);
+
     return 0;
 }
 ```
