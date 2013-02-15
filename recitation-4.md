@@ -38,10 +38,53 @@ Once Jae has added the skeleton code for your assignment, you will be able to cl
 Once the labs have all been submitted, Jae will post the solutions to his repository.  You can retrieve them with the command:
 
     git pull
-
+    
 from with in the lab1 subdirectory.
 
 ### The 4 levels of Commitment ###
 
-A file in a 
+A file in a directory under git revision control is part of one of four "levels of commitment".  They are:
 
+    untracked
+    tracked and unmodified
+    tracked, modified, and unstaged
+    tracked, modified, and staged
+
+You can check the level of commitment of the files in a directory under git revision control with the command:
+
+    git status
+
+An untracked file is a file that is not being watched for modifications by git revision control.
+To track a file, enter the following command:
+
+    git add filname
+
+Keep in mind that you only want to be tracking files that you will be editing again or submitting.  For most programming labs in this course, it will include the .h, .c, Makefile and README.txt files in the directory.  The executable and .o files need not be tracked.
+
+A tracked and unmodified is a file that has been tracked and not modified since its inception or since the last commit.
+
+A tracked, modified, and unstaged file is a file that had been tracked, edited since the last commit, but not staged for commit since the last commit.
+To stage the file for commit, again enter the command:
+
+    git add filename
+
+A tracked, modified, and staged file is a file that has been tracked, edited since the last commit, and stage for commit.
+
+### Committing Changes ###
+
+To commit changes to your files that are tracked, modified, and staged, enter the command:
+
+    git commit -m "a message with notes about the commit"
+    
+from your lab1 directory.
+To see your detailed commit history, enter the command:
+
+    git log -p --color
+
+### Submitting labs ###
+
+You can submit a lab with the submit-lab script:
+
+    /home/w3157/submit/submit-lab  lab1
+
+from the lab1 directory.
