@@ -57,7 +57,7 @@ You can check the level of commitment of the files in a directory under git revi
 An untracked file is a file that is not being watched for modifications by git revision control.
 To track a file, enter the following command:
 
-    git add filname
+    git add filename
 
 Keep in mind that you only want to be tracking files that you will be editing again or submitting.  For most programming labs in this course, it will include the .h, .c, Makefile and README.txt files in the directory.  The executable and .o files need not be tracked.
 
@@ -88,3 +88,33 @@ You can submit a lab with the submit-lab script:
     /home/w3157/submit/submit-lab  lab1
 
 from the lab1 directory.
+
+### First Lab ###
+
+Write merge() function for mergesort().
+
+### Pointers ###
+
+A pointer is a data type whose value is an address in memory.  The value "points" to another value stored in that memory location.
+
+Here is an example of a declaration of a pointer c which points to a char.
+
+    char *c;
+
+The * in the declaration lets us know that we are working with a pointer.
+The data type before the * indicates the data type or structure that the pointer points to.
+
+We also use a * when accessing the data that the pointer points to.
+
+    char b;
+    b = *c;
+
+Here, b would take on the value on what ever was pointed to by the char pointer c.
+
+To access the address of a variable, we use an &.
+
+    int x = 5;
+    int *y;
+    y = &5;
+    
+This tells y to point to the address of the int x.
