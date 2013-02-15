@@ -20,8 +20,8 @@ Change into the directory with the command:
 
 So in order to use git, you must first let it know who you are.  Do this by telling git your name and email:
 
-    git config --global user.name "Jae Woo Lee" 
-    git config --global user.email jae@cs.columbia.edu
+    git config --global user.name "First Last" 
+    git config --global user.email fml1234@columbia.edu
 
 Now, put the directory under git revision control with the command:
 
