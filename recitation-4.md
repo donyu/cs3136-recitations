@@ -33,7 +33,7 @@ A git repository is a place to store fun stuff like code, projects, and in our c
 
 Once Jae has added the skeleton code for your assignment, you will be able to clone his skeleton code from his repository with the command:
 
-    git clone /home/jae/cs3157-pub/lab1 lab1
+    git clone /home/jae/cs3136-pub/lab1 lab1
     
 Once the labs have all been submitted, Jae will post the solutions to his repository.  You can retrieve them with the command:
 
@@ -85,7 +85,7 @@ To see your detailed commit history, enter the command:
 
 You can submit a lab with the submit-lab script:
 
-    /home/w3157/submit/submit-lab  lab1
+    /home/w3136/submit/submit-lab  lab1
 
 from the lab1 directory.
 
@@ -135,6 +135,13 @@ void merge_sort(char a[], int n)
     }
 }
 ```
+A mergesort() function has 3 sections
+
+    a base case (an array of 1 or 0 elements is already sorted)
+    a split step (split unsorted array into two unsorted arrays)
+    call mergesort() on both unsorted sub arrays step
+    a merge() step (merges the now sorted sub arrays into one array)
+    (in our example, we have a 5th step, setting the values of array a to the values of the sorted array temp)
 
 ## Pointers ##
 
