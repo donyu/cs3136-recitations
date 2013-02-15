@@ -98,23 +98,23 @@ Write merge() function for mergesort().
 A pointer is a data type whose value is an address in memory.  The value "points" to another value stored in that memory location.
 
 Here is an example of a declaration of a pointer c which points to a char.
-
+```c
     char *c;
-
+```
 The * in the declaration lets us know that we are working with a pointer.
 The data type before the * indicates the data type or structure that the pointer points to.
 
 We also use a * when accessing the data that the pointer points to.
-
+```c
     char b;
     b = *c;
-
+```
 Here, b would take on the value on what ever was pointed to by the char pointer c.
 
 To access the address of a variable, we use an &.
-
+```c
     int x = 5;
     int *y;
     y = &5;
-    
+```    
 This tells y to point to the address of the int x.
