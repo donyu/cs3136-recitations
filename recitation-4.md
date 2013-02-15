@@ -89,7 +89,7 @@ You can submit a lab with the submit-lab script:
 
 from the lab1 directory.
 
-### First Lab ###
+## Lab 1 ##
 
 Write merge() function for mergesort().
 
@@ -136,7 +136,9 @@ void merge_sort(char a[], int n)
 }
 ```
 
-### Pointers ###
+## Pointers ##
+
+### What's a pointer anyway? ###
 
 A pointer is a data type whose value is an address in memory.  The value "points" to another value stored in that memory location.
 
