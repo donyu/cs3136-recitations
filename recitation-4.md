@@ -10,12 +10,20 @@ Git is a distributed revision control and source code management system with an 
 
 If you haven't already, please make a 3136 directory on your clic account with the following command in your home directory:
 
-    mkdir 3136
+    mkdir cs3136
     
+Set the permission to 700 with the command:
+
+    chmod cs3136 700
+    
+Set up the command line email configuration with the command:
+
+    cp /home/jae/cs3136-pub/conf/.muttrc ./
+
 Change into the directory with the command:
 
-    cd 3136
-
+    cd cs3136
+    
 ### Configuring git ###
 
 So in order to use git, you must first let it know who you are.  Do this by telling git your name and email:
@@ -31,7 +39,7 @@ Now, put the directory under git revision control with the command:
 
 A git repository is a place to store fun stuff like code, projects, and in our case recitation notes, homework skeleton code, or homework solutions for you!  Github.com is a website where users make repositories to share and update code with one another.
 
-Once Jae has added the skeleton code for your assignment, you will be able to clone his skeleton code from his repository with the command:
+Once Jae has added the skeleton code for your assignment, you will be able to clone his skeleton code from his repository with the command from within the cs3136 directory:
 
     git clone /home/jae/cs3136-pub/lab1 lab1
     
