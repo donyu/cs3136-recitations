@@ -128,7 +128,9 @@ And now you have your README.txt back to where it was when you last committed it
 In a nutshell, your selection sort should do the following.
 
 ```
-Given an array you will loop through each element. Find the minimum element seen past the element you are at in the loop. Replace the element you are at in the loop with the minimum found.
+Given an array you will loop through each element. 
+Find the minimum element seen past the element you are at in the loop.
+Replace the element you are at in the loop with the minimum found.
 ```
 
 Be sure to look back at Jae's code if you are stuck. For the Makefile, I highly encourage you to use the example one used by Jae (refer to recitation #2 for Makefile explanations).
