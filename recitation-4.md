@@ -125,7 +125,13 @@ And now you have your README.txt back to where it was when you last committed it
 
 (a) Writing selection sort code and create a Makefile for the relevant code.
 
-Write merge() function for mergesort().
+In a nutshell, your selection sort should do the following.
+
+Given an array you will loop through each element. Find the minimum element seen past the element you are at in the loop. Replace the element you are at in the loop with the minimum found.
+
+Be sure to look back at Jae's code if you are stuck. For the Makefile, I highly encourage you to use the example one used by Jae (refer to recitation #2 for Makefile explanations).
+
+(b) Write merge() function for mergesort().
 
 ```c
 /*
@@ -177,7 +183,34 @@ A mergesort() function has 3 sections
     a merge() step (merges the now sorted sub arrays into one array)
     (in our example, we have a 5th step, setting the values of array a to the values of the sorted array temp)
 
+You will only be coding up the merge() step which is in fact not recursive. The basis for merge() is explained below in my own pseudocode. *Note merge() is such a common function that you can find pseudocode for it everywhere online.
 
+```c
+define function merge (array1, array2) {
+    array1_index = 0
+    array2_index = 0
+    return_array = array of size (array1.size + array2.size)
+
+    for i from (0, return_array.size) {
+        when array1_index > array1.size {
+            return_array[i] = array2[array2_index++]
+        }
+        when array2_index > array2.size {
+            return_array[i] = array2[array2_index++]
+        }
+        return_array[i] = lesser of array1[array1_index] and array2[array2_index]
+        increment index of lesser of array1[array1_index] and array2[array2_index]
+    }
+
+    return return_array
+}
+```
+    
+Merge() is actually exactly what you would reasonably do if you were given two sorted decks and asked to combine it into one sorted deck.
+
+(c) Add a print stack trace to mergesort_main.c
+
+The main trick to this part is understanding where to put each distinct print statement. Good thing there's only two (one for "sorting" and one for "merging").
 
 ## Pointers ##
 
