@@ -125,8 +125,6 @@ And now you have your README.txt back to where it was when you last committed it
 
 (a) Writing selection sort code and create a Makefile for the relevant code.
 
-
-
 Write merge() function for mergesort().
 
 ```c
@@ -208,6 +206,32 @@ To access the address of a variable, we use an &.
     y = &5;
 ```    
 This tells y to point to the address of the int x.
+
+### I still don't get it ###
+
+Legendary Professor Alfred Aho once compared data types to people and pointers to where they live. Hopefully the analogy will make pointers easier to understand for you as well!
+
+Imagine that I have a person named Joe who is represented by an int. Let's say his value is 13.
+
+```c
+    int person = 13;
+```
+
+He lives somewhere (in this case in your computer) and you can ask him for his address in the computer (just like you could ask a person his home address) and store it somewhere. *Note we use & to ask a variable for its address.
+
+```c
+    int *persons_address = &person;
+```
+
+It's been a while and I want to vist Joe again and see how he's doing. Good thing I have his address.
+
+```c
+    printf("%d", *persons_address);
+```
+
+*Note that here we use * to travel to a pointers address and get the contents. It's kind of like traveling to Joe's house and asking for him.
+    
+And that's pointers in a nutshell.
 
 ### Pointer Example ###
 
