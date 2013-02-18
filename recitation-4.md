@@ -99,17 +99,27 @@ from the lab1 directory.
 
 ### More useful git ###
 
-It is a good idea to commit often! One reason is that if you make a mistake and accidentally deleted files or made a bad modification then you can revert to an earlier commit. This can be done through the following.
+It is a good idea to commit often! One reason is that if you make a mistake and accidentally deleted files or made a bad modification then you can revert to an earlier commit. This and more can be done with git tricks like below.
 
-(a) If you want to 
+(a) If you want to unmodify a file that you changed for the worse, you can checkout the file from your last commit. In example
 
-Below are a few other useful git tricks.
+    git add README.txt
+    git commit -m "I spent forever on this README"
+    rm -f README.txt
 
-(a) Stage all files in directory with
+OH NO!! Evil friend removed my awesome README.txt. Good thing I use git.
+
+    git checkout README.txt
+
+And now you have your README.txt back to where it was when you last committed it.
+
+(b) Stage all files in directory with
     
     git add ./
 
-(b)
+(c) I accidentally added in the *.o object files to be staged. What do I do?
+
+    git reset *.o 
 
 ## Lab 1 ##
 
