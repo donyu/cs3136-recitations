@@ -39,7 +39,7 @@ Now, put the directory under git revision control with the command:
 
 A git repository is a place to store fun stuff like code, projects, and in our case recitation notes, homework skeleton code, or homework solutions for you!  Github.com is a website where users make repositories to share and update code with one another.
 
-Once Jae has added the skeleton code for your assignment, you will be able to clone his skeleton code from his repository with the command from within the cs3136 directory:
+Once Jae has added the skeleton code for your assignment, you will be able to clone his skeleton code from his repository with the following command from within the cs3136 directory:
 
     git clone /home/jae/cs3136-pub/lab1 lab1
     
@@ -47,7 +47,7 @@ Once the labs have all been submitted, Jae will post the solutions to his reposi
 
     git pull
     
-from with in the lab1 subdirectory.
+from with in the lab1 subdirectory. Here you are literally "pulling" all of the changes Jae has made to his git directory.
 
 ### The 4 levels of Commitment ###
 
@@ -97,7 +97,25 @@ You can submit a lab with the submit-lab script:
 
 from the lab1 directory.
 
+### More useful git ###
+
+It is a good idea to commit often! One reason is that if you make a mistake and accidentally deleted files or made a bad modification then you can revert to an earlier commit. This can be done through the following.
+
+(a) If you want to 
+
+Below are a few other useful git tricks.
+
+(a) Stage all files in directory with
+    
+    git add ./
+
+(b)
+
 ## Lab 1 ##
+
+(a) Writing selection sort code and create a Makefile for the relevant code.
+
+
 
 Write merge() function for mergesort().
 
@@ -150,6 +168,8 @@ A mergesort() function has 3 sections
     call mergesort() on both unsorted sub arrays step
     a merge() step (merges the now sorted sub arrays into one array)
     (in our example, we have a 5th step, setting the values of array a to the values of the sorted array temp)
+
+
 
 ## Pointers ##
 
