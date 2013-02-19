@@ -187,7 +187,7 @@ A mergesort() function has 3 sections
     a merge() step (merges the now sorted sub arrays into one array)
     (in our example, we have a 5th step, setting the values of array a to the values of the sorted array temp)
 
-You will only be coding up the merge() step which is in fact not recursive. The basis for merge() is explained below in my own pseudocode. *Note merge() is such a common function that you can find pseudocode for it everywhere online.
+You will only be coding up the merge() step which is in fact not recursive. The basis for merge() is explained below in my own pseudocode. *Note merge() is such a common function that you can find pseudocode for it everywhere online. (but the below should be sufficient)
 
 ```c
 define function merge (array1, array2) {
@@ -196,11 +196,13 @@ define function merge (array1, array2) {
     return_array = array of size (array1.size + array2.size)
 
     for i from (0, return_array.size) {
-        when array1_index > array1.size {
+        if array1_index >= array1.size {
             return_array[i] = array2[array2_index++]
+            continue on with loop
         }
-        when array2_index > array2.size {
+        if array2_index >= array2.size {
             return_array[i] = array2[array2_index++]
+            continue on with loop
         }
         return_array[i] = lesser of array1[array1_index] and array2[array2_index]
         increment index of lesser of array1[array1_index] and array2[array2_index]
@@ -214,7 +216,7 @@ Merge() is actually exactly what you would reasonably do if you were given two s
 
 (c) Add a print stack trace to mergesort_main.c
 
-The main trick to this part is understanding where to put each distinct print statement. Good thing there's only two (one for "sorting" and one for "merging").
+The main trick to this part is understanding where to put each distinct print statement and how to keep track of indentation. It is a lot easier if you use Jae's already included print_array() function to print the array, and you may decide to use multiple printf statements to get a single line to print out.
 
 ## Pointers ##
 
