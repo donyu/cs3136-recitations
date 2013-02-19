@@ -274,7 +274,7 @@ And that's pointers in a nutshell.
 
 ### Pointer Example ###
 
-What do you think will be printed in the following example?
+Walk through the following program, keeping track of what pointers point to what, and what's happening at each step.
 ```c
 #include <stdio.h>
 
