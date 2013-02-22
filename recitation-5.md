@@ -67,11 +67,11 @@ void doubleItP(int *a)
 ### sizeof() and pointers ###
 `sizeof()` is a built-in function in c that returns the size of a given variable or type in bytes as a long unsigned integer.
 
-  The size of a `char` is 1 byte.
-  The size of an `int` is 4 bytes.
-  The size of a pointer is 8 bytes.
-  The size of an array is equal to the array size times the size of the data inside of it.
-  If you are taking the sizeof() of a dereferenced pointer, the size is the size of the type after dereferencing.
+The size of a `char` is 1 byte.
+The size of an `int` is 4 bytes.
+The size of a pointer is 8 bytes.
+The size of an array is equal to the array size times the size of the data inside of it.
+If you are taking the sizeof() of a dereferenced pointer, the size is the size of the type after dereferencing.
 
 ```c
 #include <stdio.h>
@@ -89,6 +89,33 @@ int main(int argc, char **argv)
   printf("%lu\n", sizeof(a[1]));     // should be 4
   
   return 0;
+}
+```
+
+### Arrays and Pointers ###
+An array is pretty much a glorified pointer.  You can do very similar things with both of them.
+
+In the following example, we move pointers around the array to access elements.
+
+```c
+#include <stdio.h>
+
+int main(int argc, char **argv)
+{
+  int a[10];
+  a = {23 5 4 20 39 88 6 25 92 1};
+  int *p = a;
+  
+  printf("%d is the same as %d\n", *p, a[0]);
+  printf("%d is the same as %d\n", *(p + 4), a[4]);
+  printf("%d is the same as %d is the same as %d\n", *(p + 6), a[6], *(a + 6));
+  printf("%d is the same as %d is the same as %d is the same as %d\n", *(p + 9), a[9], *(a + 9), *(9 + a));
+  
+  /* you can also increment a pointer! */
+  int i;
+  for (i = 0; i < 10; i++)
+    printf("%d\n", *p++);
+  /* but you can't do this with an array :( */
 }
 ```
   
