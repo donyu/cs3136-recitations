@@ -122,4 +122,14 @@ int main(int argc, char **argv)
   return 0;
 }
 ```
-  
+
+### char * (strings in C) ###
+As you have heard by now, C does not come with a string data type like java, python, and c++.
+
+Instead, strings are represented as an array of chars.
+
+You can set a char pointer or char array to a string literal, or characters surrounded by ""'s like "boat".  It is important to note that you cannot manipulate string literals like you can a normal array of characters.
+
+C comes with a <string.h> library of functions for character array manipulation. You can find more details here: http://www.cs.cf.ac.uk/Dave/C/node19.html
+
+
