@@ -201,7 +201,7 @@ define function merge (array1, array2) {
             continue on with loop
         }
         if array2_index >= array2.size {
-            return_array[i] = array2[array2_index++]
+            return_array[i] = array1[array2_index++]
             continue on with loop
         }
         return_array[i] = lesser of array1[array1_index] and array2[array2_index]
