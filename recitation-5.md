@@ -63,3 +63,32 @@ void doubleItP(int *a)
   *a = *a * 2;
 }
 ```
+
+### sizeof() and pointers ###
+`sizeof()` is a built-in function in c that returns the size of a given variable or type in bytes as a long unsigned integer.
+
+  The size of a `char` is 1 byte.
+  The size of an `int` is 4 bytes.
+  The size of a pointer is 8 bytes.
+  The size of an array is equal to the array size times the size of the data inside of it.
+  If you are taking the sizeof() of a dereferenced pointer, the size is the size of the type after dereferencing.
+
+```c
+#include <stdio.h>
+
+int main(int argc, char **argv)
+{
+  int x;
+  char *c;
+  int a[20];
+  
+  printf("%lu\n", sizeof(x));        // should be 4.  note the %lu for long unsigned int
+  printf("%lu\n", sizeof(c));        // should be 8
+  printf("%lu\n", sizeof(a));        // should be 80 (4 * 20)
+  printf("%lu\n", sizeof(*c));       // should be 1
+  printf("%lu\n", sizeof(a[1]));     // should be 4
+  
+  return 0;
+}
+```
+  
