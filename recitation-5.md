@@ -1,5 +1,50 @@
 # Recitation 5 #
 
+## Your Best Friend - Professor Debugger ##
+
+Although not necessary, once your C programs start getting very complicated and long you should start relying on the debugger and less on print statements. 
+
+*Note that you will need the -g when compiling if you want to debug your program later on (i.e. gcc -g or CFLAGS = -g in Makefile)
+
+I have included a sample C program to copy
+
+(1) Start the debugger on your program
+```
+gdb ./debug_example
+```
+
+(2) Place breakpoints at specific lines where you think the error could be occuring as follows.
+```
+break <file name>:<line number>
+```
+When running the program through the debugger, the debugger will stop at that line you specified so that you can inspect variables at that point.
+*Note that you can turn line numbers on in vim through the command "set nu" in command mode
+
+For this example there is only one file so we can forget about that
+```
+break 10
+```
+
+You can also add a breakpoint to specific functions! The syntax for the command would be
+```
+break <function name>
+```
+I expect you guys might want to debug your merge() or Jae's merge_sort() functions.
+```
+break merge
+```
+
+(3) Now run the program as follows
+```
+run [args you would pass into program if any]
+```
+But since our example program doesn't take any args, we can just use
+```
+run
+```
+
+(4) The program will continue to run normally until it hits a breakpoint you specified earlier. *Note that in this assignment you would have to give it user input before it reaches any break point
+
 ## Pointers on Pointers on Pointers ##
 
 ### What's a pointer again? ###
