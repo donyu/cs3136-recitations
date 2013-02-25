@@ -251,16 +251,24 @@ Instead, strings are represented as an array of chars.
 
 You can set a char pointer or char array to a string literal, or characters surrounded by ""'s like "boat".  It is important to note that you cannot manipulate string literals like you can a normal array of characters.
 
-C comes with a <string.h> library of functions for character array manipulation. You can find more details here: http://www.cs.cf.ac.uk/Dave/C/node19.html
+C comes with a <string.h> library of functions for string literal manipulation. You can find more details here: http://www.cs.cf.ac.uk/Dave/C/node19.html
 
+Because there is no string data type, there is no == operator for string literals.  Below is the strncmp function.  It is used to evaluate whether the first n characters of 2 strings are the same.
+It returns 0 if the first n characters of the strings are the same (or if the first string has less than n characters and they all match up).  It returns -1 or 1 otherwise depending on the first character mismatch.
 ```c
-int strncmp(const char *s1, const char *s2, size_t n)
+int strncmp(const char *s1, const char *s2, int n)
 {
-    for ( ; n > 0; s1++, s2++, --n)
-  if (*s1 != *s2)
-	    return ((*(unsigned char *)s1 < *(unsigned char *)s2) ? -1 : +1);
-	else if (*s1 == '\0')
-	    return 0;
-    return 0;
+	int i;
+	for (i = 0; n > 0; i++)
+  		if (*(s1 + i) != *(s2 + i))				// dereference pointers
+  		{
+  			if (*(unsigned char *)(s1 + i) < *(unsigned char *)(s2 + i)) //the cast is to get rid of warnings
+  				return -1;
+  			else
+  				return 1;
+  		}
+		else if (*s1 == '\0')
+	    	return 0;
+  	return 0;
 }
 ```
