@@ -120,3 +120,43 @@ Doh! We see here that we are incrementing i twice rather than just once and the 
 ``` 
 
 There is a lot more that the debugger can do, and I encourage you to research online for more tips/tricks ond debugging your programs.
+
+## Malloc ##
+Sometimes you want a bit more than a local variable, but less than a static variable.  
+Sometimes, you want a dynamic AND persistant array.  Who you gonna call? -> Heap allocation.
+How you gonna call it? -> with malloc().
+A variable allocated on the heap will stay there until free() is called.  Wow!
+Example:
+```c
+char *allocateIntArray()
+{
+  int *p = (int *)malloc(3 * sizeof(int));
+  return p;
+}
+
+void callNumber(int *p)
+{
+  printf("Calling ")
+  int i;
+  for (i = 0; i < sizeof(p)/sizeof(int); i++)
+  {
+    printf("%d", *(p + i));
+  }
+  printf("\n");
+}
+
+void freeIntArray(int *p)
+{
+  free(p);
+}
+
+int main(int argc, char **argv)
+{
+  int *emergency = allocateIntArray();
+  *(emergency) = 9;
+  *(emergency + 1) = 1;
+  *(emergency + 2) = 1;
+  callNumber(emergency);
+  freeIntArray(emergency);
+  return 0;
+}
