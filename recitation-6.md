@@ -171,5 +171,56 @@ No!  There were structs well before there were classes in C++ and Java.  A class
 One of the key differences between a struct and a class is that the variables in a struct are inherently public while the variables in a class are inherently private.
 But you don't have to worry about classes for the time being, cause we're still in C.
 
-Contact Example:
-typedef
+### Contact Example ###
+Here, we create a struct for a contact that might appear in your phone.
+```c
+#include <stdio.h>
+#include <stdlib.h> // for malloc
+
+struct Contact {
+  char *first;
+	char *last;
+	int number;
+};
+
+/* Met a cute girl at Mel's, gotta add her */
+struct Contact *createContact(char *_first, char *_last, int _number)
+{
+	struct Contact *new = (struct Contact *)malloc(sizeof(struct Contact));
+	if (new == NULL)
+	{
+		printf("malloc failed");
+		return NULL;
+	}
+	new -> first = _first;
+	new -> last = _last;
+	new -> number = _number;
+	return new;
+}
+
+/* And now she's making out with my friend, forget her */
+void deleteContact(struct Contact *c)
+{
+	free(c);
+}
+
+void printContact(struct Contact *c)
+{
+	printf("%s %s's number is %d\n", c1 -> first, c1 -> last, c1 -> number);
+}
+
+
+int main(int argc, char **argv)
+{
+	struct Contact *c1 = createContact("Don", "Yu", 1234567890);
+	printContact(c1);
+	deleteContact(c1);
+	return 0;
+}
+```
+## Functions on Functions: Function Pointers ##
+Sometimes, it may make sense for a function to take another function as a parameter.
+This is seen in a lot of sorting, where a sorting function, like quicksort or mergesort, takes in a comparison function.
+Let's see how this would play into our contact example:
+```c
+
