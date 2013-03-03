@@ -128,7 +128,7 @@ How you gonna call it? -> with malloc().
 A variable allocated on the heap will stay there until free() is called.  Wow!
 Example:
 ```c
-#include <stdio.h>
+#include <stdio.h> // look!  a new library for malloc and free!
 #include <stdlib.h>
 
 int *allocateIntArray()
