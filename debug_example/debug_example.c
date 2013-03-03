@@ -19,12 +19,15 @@ void overwrite_array(int orig[], int orig_size, int copy[], int copy_size) {
 int main() {
   int orig[] = {1, 2, 3, 4, 5};
   int copy[] = {6, 7, 8, 9, 10};
+  printf("orig: ");
   print_array(orig, 5);
   printf("\n");
+  printf("copy: ");
   print_array(copy, 5);
   printf("\n");
 
   overwrite_array(orig, 5, copy, 5);
+  printf("over: ");
   print_array(orig, 5);
   printf("\n");
 
