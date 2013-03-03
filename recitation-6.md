@@ -257,6 +257,7 @@ void deleteContact(struct Contact *c)
 	free(c);
 }
 
+/* prints a contact info */
 void printContact(struct Contact *c)
 {
 	printf("%s %s's number is %d\n", c -> first, c -> last, c -> number);
@@ -275,22 +276,31 @@ int compareContacts(const void *c1, const void *c2)
 
 int main(int argc, char **argv)
 {
-	struct Contact *myContacts[3];
+	struct Contact myContacts[3];	//our array of contacts that will be sorted
+
+	// allocate memory on heap
 	struct Contact *c1 = createContact("Don", "Yu", 1234567890);
 	struct Contact *c2 = createContact("Etan", "Zapinsky", 1867877234);
 	struct Contact *c3 = createContact("Louis", "Croce", 1555555555);
 
-	myContacts[0] = c1;
-	myContacts[1] = c2;
-	myContacts[2] = c3;
+	// assign contacts
+	myContacts[0] = *c1;
+	myContacts[1] = *c2;
+	myContacts[2] = *c3;
 
+	// call qsort
 	qsort(myContacts, 3, sizeof(struct Contact), compareContacts);
 
 	int i;
 	for (i = 0; i < 3; i++)
 	{
-		printContact(myContacts[i]);
+		printContact(&myContacts[i]);
 	}
+
+	// free space allocated on heap
+	deleteContact(c1);
+	deleteContact(c2);
+	deleteContact(c3);
 	return 0;
 }
 ```
