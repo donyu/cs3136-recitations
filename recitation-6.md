@@ -167,7 +167,7 @@ int main(int argc, char **argv)
 ## Structs ##
 ### What's a struct? ###
 A struct is a collection of variables.  Some may say "it's like a class in C".
-No!  There were structs well before there were classes in C++ and Java.  A class is an expansion of a struct.
+Actually, there were structs well before there were classes in C++ and Java.  A class is an expansion of a struct.
 One of the key differences between a struct and a class is that the variables in a struct are inherently public while the variables in a class are inherently private.
 But you don't have to worry about classes for the time being, cause we're still in C.
 
