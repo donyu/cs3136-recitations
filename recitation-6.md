@@ -171,6 +171,26 @@ Actually, there were structs well before there were classes in C++ and Java.  A 
 One of the key differences between a struct and a class is that the variables in a struct are inherently public while the variables in a class are inherently private.
 But you don't have to worry about classes for the time being, cause we're still in C.
 
+### Struct declaration ###
+A struct can be declared in a few ways:
+```c
+// way 1
+struct Dog {
+	char *name;
+};
+struct Dog d1;
+
+// way 2
+struct {
+	char *name;
+} d1;
+
+// way 3
+typdef struct {
+	char * name;
+} Dog;
+Dog d1;
+```
 ### Contact Example ###
 Here, we create a struct for a contact that might appear in your phone.
 ```c
@@ -217,6 +237,10 @@ int main(int argc, char **argv)
 	return 0;
 }
 ```
+### Dots and Arrows ###
+You use arrows to access a struct's variables when you are obtaining the variables from a pointer to a struct.
+You use dots to access a struct's variables when you are obtaining the varaibles from the struct itself.
+
 ## Functions on Functions: Function Pointers ##
 Sometimes, it may make sense for a function to take another function as a parameter.
 This is seen in a lot of sorting, where a sorting function, like quicksort or mergesort, takes in a comparison function.
