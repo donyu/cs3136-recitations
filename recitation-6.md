@@ -220,7 +220,11 @@ int main(int argc, char **argv)
 ## Functions on Functions: Function Pointers ##
 Sometimes, it may make sense for a function to take another function as a parameter.
 This is seen in a lot of sorting, where a sorting function, like quicksort or mergesort, takes in a comparison function.
-C has a built-in function called qsort in stdlib.h.
+C has a built-in function called qsort in stdlib.h.  It's declaration looks like this:
+```c
+ void qsort(void *baseAddress, size_t numElem, size_t sizeElem,
+  int (*compareFn)(const void *, const void *));
+```
 Let's update our contact example to use qsort and a compare function:
 ```c
 #include <stdio.h>
