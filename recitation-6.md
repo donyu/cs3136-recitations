@@ -164,6 +164,10 @@ int main(int argc, char **argv)
   return 0;
 }
 ```
+### Memory Leaks ###
+When you run valgrind on your programs, you will have memory errors if you allocated memory on the heap that wasn't freed.
+Don't forget to free()!  Memory errors will lose you points on labs!
+
 ## Structs ##
 ### What's a struct? ###
 A struct is a collection of variables.  Some may say "it's like a class in C".
