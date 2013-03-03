@@ -128,7 +128,10 @@ How you gonna call it? -> with malloc().
 A variable allocated on the heap will stay there until free() is called.  Wow!
 Example:
 ```c
-char *allocateIntArray()
+#include <stdio.h>
+#include <stdlib.h>
+
+int *allocateIntArray()
 {
   int *p = (int *)malloc(3 * sizeof(int));
   return p;
@@ -136,9 +139,9 @@ char *allocateIntArray()
 
 void callNumber(int *p)
 {
-  printf("Calling ")
+  printf("Calling ");
   int i;
-  for (i = 0; i < sizeof(p)/sizeof(int); i++)
+  for (i = 0; i < (sizeof(p)/sizeof(int)) + 1; i++)
   {
     printf("%d", *(p + i));
   }
@@ -160,3 +163,5 @@ int main(int argc, char **argv)
   freeIntArray(emergency);
   return 0;
 }
+```
+
