@@ -26,6 +26,7 @@ int main() {
 
   overwrite_array(orig, 5, copy, 5);
   print_array(orig, 5);
+  printf("%lu\n", sizeof(orig));
   printf("\n");
 
   return 0;

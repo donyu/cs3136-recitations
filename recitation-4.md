@@ -35,6 +35,8 @@ Now, put the directory under git revision control with the command:
 
     git init
 
+NOTE: You do NOT need to type "git init" during a lab ever because Jae will already have done this step. Doing so will result in conflicts for your submitted patch file (think of running "git init" twice as creating another save file and now the submit script doesn't know which one is the right one to submit to the TAs!).
+
 ### Repositories and Retrieving Assignments ###
 
 A git repository is a place to store fun stuff like code, projects, and in our case recitation notes, homework skeleton code, or homework solutions for you!  Github.com is a website where users make repositories to share and update code with one another.
