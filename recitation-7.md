@@ -86,3 +86,33 @@ Available only in c++
 ```c
   f(struct Pt &p)
 ```
+
+
+### C++ Basic 4 ###
+Four functions that make up the core of any class.  If you do not write them, the compiler will generate them
+and they may not do what you want!  I will write them as they appear in the header file for our MyString class.
+#### The Constructor ####
+Initialize all variables of class.  No return type.  Can take any number of arguments to initialize the variables.
+```c
+        // default constructor.  Has no arguments.
+        MyString();
+        // constructor 1.  Takes in a char * to be assigned to data
+        MyString(const char* p);
+```
+#### The Destructor ####
+Deallocates all memory allocated in the construction of the object.
+```c
+  ~MyString();
+```
+#### Copy Constructor ####
+The copy constructor is called automatically in certain situations.
+It is called when an object is returned by value.
+It is also called when an object is passed into a function by value.
+```c
+  MyString(const MyString& s);
+```
+#### Assignment Operator ####
+Called in assignment operations.
+```c
+  MyString& operator=(const MyString& s);
+```
