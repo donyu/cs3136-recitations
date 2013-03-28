@@ -106,7 +106,7 @@ Initialize all variables of class.  No return type.  Can take any number of argu
   MyString::MyString()
   {
       data = new char[1];
-      data[0] = ’\0’;
+      data[0] = '\0';
       len = 0;
   }
   // constructor 1
@@ -118,7 +118,7 @@ Initialize all variables of class.  No return type.  Can take any number of argu
          strcpy(data, p);
      } else {
          data = new char[1];
-         data[0] = ’\0’;
+         data[0] = '\0';
          len = 0;
      }
   }
