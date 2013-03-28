@@ -90,29 +90,86 @@ Available only in c++
 
 ### C++ Basic 4 ###
 Four functions that make up the core of any class.  If you do not write them, the compiler will generate them
-and they may not do what you want!  I will write them as they appear in the header file for our MyString class.
+and they may not do what you want!  I will write them as they appear in our MyString class.
+Our MyString class has two private variables: char *data and int len.
 #### The Constructor ####
 Initialize all variables of class.  No return type.  Can take any number of arguments to initialize the variables.
 ```c
+// In mystring.h:
         // default constructor.  Has no arguments.
         MyString();
         // constructor 1.  Takes in a char * to be assigned to data
         MyString(const char* p);
+        
+// In mystring.cpp
+  // default constructor.  Allocate memory for empty string (just '\0' char).
+  MyString::MyString()
+  {
+      data = new char[1];
+      data[0] = ’\0’;
+      len = 0;
+  }
+  // constructor 1
+  MyString::MyString(const char* p)
+  {
+     if (p) {
+          len = strlen(p);
+         data = new char[len+1];
+         strcpy(data, p);
+     } else {
+         data = new char[1];
+         data[0] = ’\0’;
+         len = 0;
+     }
+  }
 ```
 #### The Destructor ####
 Deallocates all memory allocated in the construction of the object.
+Should be a mirror image of sorts of the constructor.
 ```c
+// In mystring.h:
   ~MyString();
+  
+// In mystring.cpp:
+  MyString::~MyString()
+  {
+    delete[] data; deallocate memory allocated in the constructor.
+  }
 ```
 #### Copy Constructor ####
 The copy constructor is called automatically in certain situations.
 It is called when an object is returned by value.
 It is also called when an object is passed into a function by value.
 ```c
+// In mystring.h:
   MyString(const MyString& s);
+
+// In mystring.cpp:
+  MyString::MyString(const MyString& s)
+  {
+    len = s.len;
+    data = new char[len+1];
+    strcpy(data, s.data);
+  }
 ```
 #### Assignment Operator ####
 Called in assignment operations.
 ```c
+// In mystring.h:
   MyString& operator=(const MyString& s);
+
+// In mystring.cpp:
+  MyString& MyString::operator=(const MyString& rhs)
+  {
+    if (this == &rhs) {
+        return *this;
+    }
+    // first, deallocate memory that 'this' used to hold
+    delete[] data;
+    // now copy from rhs
+    len = rhs.len;
+    data = new char[len+1];
+    strcpy(data, rhs.data);
+    return *this;
+  }
 ```
