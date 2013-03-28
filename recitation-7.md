@@ -34,3 +34,55 @@ String *buf = allocString("hello");
 ```c
 String s = "hello";
 ```
+
+
+### Review ###
+#### Declaration vs. Definition ####
+A declaration tells the compiler the name and type/return type of a variable/function/class
+which is defined somewhere else.  For our purposes, the definition could be somewhere else in 
+the same file or in a .c file of the same name.
+
+The definition defines. Simple as that.  Defining could happen in the assignment of a variable or
+in the associated body of a function, struct, or class.
+
+#### Stack vs. Heap allocations ####
+Stack allocations go away after the scope of the function has passed.  Heap allocations persist
+beyond the scope of the function.
+```c
+struct Pt {
+  int x;
+  int y;
+};
+In C:
+        // stack allocation
+        struct Pt p1;
+        // p1 goes away at the end of its scope
+        // heap allocation
+        struct Pt *p2 = malloc(sizeof(struct Pt));
+        ...
+        free(p2);
+In C++:
+        // stack allocation
+        struct Pt p3(0,0);
+        // p3 gets destructed at the end of its scope
+        // heap allocation
+        struct Pt *p4 = new Pt(0,0);
+        ...
+        delete p4;
+```
+#### Pass by.... ####
+##### Pass by value #####
+Available in both c and c++
+```c
+  f(struct Pt p)
+```
+##### Pass by pointer #####
+Available in both c and c++
+```c
+  f(struct Pt *p)
+```
+##### Pass by reference #####
+Available only in c++
+```c
+  f(struct Pt &p)
+```
