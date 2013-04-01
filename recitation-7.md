@@ -7,9 +7,9 @@
   1. Object Oriented (like JAVA!)
     a) We can create our own data types with classes!
     b) Variables and functions can be polymorphic and we can use inheritance when creating classes.
-  2. Use templates to for more generic programming!
+  2. Use templates for more generic programming!
   3. Built-in Goodies
-    a) containers like list, vector, que
+    a) containers like list, vector, queue
     b) functions like qsort (which you already had, but there's more good stuff like that)
   4. A STRING CLASS!!!!
 ```
@@ -28,6 +28,7 @@ typedef struct {
   char *s;
   int len;
 } String;
+
 String *buf = allocString("hello");
 ```
 #### What we want: ####
@@ -42,8 +43,22 @@ A declaration tells the compiler the name and type/return type of a variable/fun
 which is defined somewhere else.  For our purposes, the definition could be somewhere else in 
 the same file or in a .c file of the same name.
 
+i.e. 
+```c
+void swap(int *a, int *b);
+```
+
 The definition defines. Simple as that.  Defining could happen in the assignment of a variable or
 in the associated body of a function, struct, or class.
+
+i.e. 
+```c
+void swap(int *a, int *b) {
+  int t = *a;
+  *a = *b;
+  *b = t;
+}
+```
 
 #### Stack vs. Heap allocations ####
 Stack allocations go away after the scope of the function has passed.  Heap allocations persist
@@ -125,7 +140,7 @@ Initialize all variables of class.  No return type.  Can take any number of argu
 ```
 #### The Destructor ####
 Deallocates all memory allocated in the construction of the object.
-Should be a mirror image of sorts of the constructor.
+Should be a mirror image of sorts of the constructor. Note that the destructor gets called whenever a MyString object is deleted or removed from the Memory Stack.
 ```c
 // In mystring.h:
   ~MyString();
