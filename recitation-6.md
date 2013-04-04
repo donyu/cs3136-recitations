@@ -155,11 +155,11 @@ void freeIntArray(int *p)
 
 int main(int argc, char **argv)
 {
-  int emergency[3] = allocateIntArray();
+  int *emergency = allocateIntArray();
   *(emergency) = 9;
   *(emergency + 1) = 1;
   *(emergency + 2) = 1;
-  callNumber(emergency, sizeof(emergency));
+  callNumber(emergency, 3);
   freeIntArray(emergency);
   return 0;
 }
