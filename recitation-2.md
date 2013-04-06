@@ -107,7 +107,7 @@ doesn't attempt to use implicit rules or try to compile them. The first target
 we make is "clean" which should remove all intermediate files. *Always include a
 clean* so that `make clean` can be used to remove intermediate files like object
 files, compiled code, etc. This should return your directory to just its source
-code that can generate all the other files. *Be careful:* Using `rm -r` will not
+code that can generate all the other files. *Be careful:* Using `rm -f` will not
 prompt you to remove files. This is customary for `make clean` but it also means
 if you make a mistake in designing your rule it could remove files that you
 didn't want to. There is no "trash" in UNIX - they'll be gone forever.
@@ -125,6 +125,52 @@ clean:
 all: clean main
 ```
 
+### Exercise ###
+
+1. I go through the following steps on clic and get the following output.
+
+```unix
+˜/cs3157/lab1$ ls
+    main.c  Makefile  myadd.c  myadd.h  README.txt
+
+˜/cs3157/lab1$ make 
+    gcc -g -Wall    -c -o main.o main.c
+    gcc -g -Wall    -c -o myadd.o myadd.c
+    gcc -g  main.o myadd.o   -o main
+
+˜/cs3157/lab1$ touch myadd.h 
+
+˜/cs3157/lab1$ make 
+    gcc -g -Wall    -c -o main.o main.c
+    gcc -g -Wall    -c -o myadd.o myadd.c
+    gcc -g  main.o myadd.o   -o main
+```
+
+The Makefile in that same directory is shown here, with the build rules
+removed.  Fill in the missing lines, specifying targets and
+dependencies that are consistent with the CLIC lab session shown
+above.
+
+Fill in only targets and dependencies.  That is, do not write the gcc
+commands that come below the target/dependency lines.  Rely on the
+implicit rules that make knows by default.
+
+```make
+    CC  = gcc
+    CXX = g++
+    INCLUDES =
+    CFLAGS   = -g -Wall $(INCLUDES)
+    CXXFLAGS = -g -Wall $(INCLUDES)
+    LDFLAGS = -g
+    LDLIBS =
+
+    # Fill in the missing targets and dependencies here
+
+    .PHONY: clean
+    clean:
+            rm -f *.o *˜ a.out core main
+```
+
 ## C data types ##
 
 While C provides many basic data types, the one's that you'll mostly be concerned about are char, short, int, and long. The memory sizes for each type is system specific (different from Java where primitive memory sizes are language defined). 
@@ -137,12 +183,14 @@ Compared to the base-10 number system every digit in a binary number reflects 2 
 
 ```c
 1010 = 1 * 2^3 + 1 * 2^1 = 10
-0110 = 1 * 2^2 + 1 * 2^1 = 5
+0110 = 1 * 2^2 + 1 * 2^1 = 6
 ```
 
 ### 2's complement system ###
 
 2's complement is used to represent signed integers in binary. Why is this? Well we don't have a negative sign when everything is just 1's and 0's, so we need to think of another way to represent negative numbers.
+
+One potential scheme is to represent the first bit as the sign bit and we add the other bits like ussual. So `5` would be represented as `0101` and `-5` would be represented as `1101`. This seems to work well, we can cover all possible integer values. However, how should we represent zero? Initially, we would just think it could be `0000`. Then again, how about `1000`? Mathematically, `0 = -0` so `0000 = 1000` should also be true. This ambiguity is what leads us to 2's compliment since it removes this possibility.
 
 Let's first start by explaining what each bit represents within 2's complement. Actually, every bit is the same except for the first bit which now represents the NEGATIVE value of the value of that bit.
 
@@ -167,7 +215,7 @@ A 2's complement number with a leading 0 should be evaluated the same as any oth
 
 Hexidecimals is yet another common way of representing numbers. Except now it's base-16 and has letters to represent more digits!
 
-Following the same layout as binary, we now have the following digit possibilites:
+Following the same layout as binary, we now have the following digit possibilities:
 	0, 1, 2, 3, 4, 5, 6, 7, 8, 9, A (equal to 10), B (equal to 11), C (equal to 12), D (equal to 13), E (equal to 14), F (equal to 15)
 
 Each digit place now corresponds to 16 to some power i.e. AE = (10 * 16^1 + 14 * 16^0). Also it's really important to note that each hexidecimal digit corresponds to a 4 digit binary number!
