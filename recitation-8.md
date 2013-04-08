@@ -29,7 +29,21 @@ So now there are 2 ways to be able to touch or modify an Objects private parts (
 Example
 
 ```c
+
+  class Dog {
+    public:
+      Dog();
+      Dog(int m) { this->m = m; }
+      int friend_dog(const Dog& d1, const Dog& d2);
+    private:
+      int m;
+  };
+
   int not_friend(const Dog& d1, const Dog& d2) {
+    return d1.m + d2.m;
+  }
+
+  int friend_dog(const Dog& d1, const Dog& d2) {
     return d1.m + d2.m;
   }
 ```
@@ -38,6 +52,7 @@ Example
 
 1. Consider a C++ program, jaes-club.cpp:
 
+```c
   #include <iostream>
   #include <string>
   #include "mystring.h"
@@ -51,6 +66,7 @@ Example
     cout << *(f(s)) << endl;
     return 0;
   }
+```
 
 For each of the following questions, determine if it is one of the 
 following results and write out the output of the program if it is GOOD. You do not have to write any output if the program is broken or bad.
@@ -59,15 +75,23 @@ following results and write out the output of the program if it is GOOD. You do 
 - BAD: Valgrind repors memory error or leak
 - BROKEN: Does not compile
 
-a)  MyString *f(MyString &s) {
+a)  
+
+```c
+  MyString *f(MyString &s) {
     MyString *p = new MyString(s);
     return p;
   }
+```
 
-b)  MyString *f(MyString s) {
+b)  
+
+```c
+  MyString *f(MyString s) {
     MyString p(s);
     return &p;  
   }
+```
 
 c)  
 
@@ -95,7 +119,7 @@ Consider another C++ program, dons-club.cpp:
     cout << f(s) << endl;
     return 0;
   }
-```c
+```
 
 For each of the following questions, determine if it is one of the 
 following results and write out the output of the program if it is GOOD. You do not have to write any output if the program is broken or bad.
