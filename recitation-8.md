@@ -1,11 +1,13 @@
-# Recitation 7 #
+# Recitation 8 #
 
 ## Lab 3 ##
 
 BASIC4TRACE: (0xbffff9a0)->MyString(const char *)
-                ^memory address of variable   ^basic 4 function called
 
-          
+0xbffff9a0 = memory address of variable   
+MyString(const char *) = basic 4 function called
+
+
 
 ## Practice Time ##
 
