@@ -34,7 +34,7 @@ Example
     public:
       Dog();
       Dog(int m) { this->m = m; }
-      int friend_dog(const Dog& d1, const Dog& d2);
+      friend int friend_dog(const Dog& d1, const Dog& d2);
     private:
       int m;
   };
