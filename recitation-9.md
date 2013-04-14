@@ -44,13 +44,46 @@ Balanced Binary Tree: The depth of the left and right subtrees of every node dif
 Degenerate Tree: Is a tree where for each parent node, there is only one associated child node. (Performs like a linked list).
 ```
 ### Performance of Binary Trees ###
-Because we don't know what kind of binary tree we're dealing with, there is generally poor performance if we just know the tree is binary.
+When we don't know the properties of a binary tree, performance is generally poor in the worst case.
 ```
 Note that in the following, n is the number of nodes in the tree.
-lookup(Node n): O(n) 
+space: O(n)
+search(Node n): O(n) 
 delete(Node n): O(n)
+insert(Node n): O(n)
 print_tree: O(n)
 delete_Root: O(1)
 ```
 
 ## Binary Search Trees ##
+
+### What's a binary search tree? ###
+A binary search tree (BST) is a binary tree where the left subtree contains all values less than the node,
+the right subtree contains values greater than the node for all nodes and there are no duplicate nodes.
+
+### Performance Measure ###
+We still don't know if the tree full/complete/perfect, so in the worst case, performance is still poor.
+```
+space: O(n)
+search(Node n)
+space: O(n)
+search(Node n): O(n) 
+delete(Node n): O(n)
+insert(Node n): O(n)
+print_tree: O(n)
+delete_Root: O(1)
+```
+The average case is improved to O(log n) for many methods though from a general binary tree.
+
+## Traversals ##
+
+### Types of traversals ###
+Two general types of traversals: Depth First and Breadth first. In breadth first, we explore nodes by level.  We care more about depth first, where we explore nodes by depth.
+
+### Depth First Traversal Methods ###
+Here's what the different depth order traversal methods look like.
+```
+Pre-order: visit root, traverse left subtree, then traverse right subtree.
+In-order: traverse left subtree, visit root, then traverse right subtree.
+Post-order: visit root, traverse left subtree, then traverse right subtree.
+```
