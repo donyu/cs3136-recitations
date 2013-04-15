@@ -9,11 +9,11 @@ A tree is a data structure with a set of linked nodes in a hierarchical tree-lik
 The root of the tree is the top most node on the tree (Think of it like an upside down real tree).
 Two nodes can be related to each other as "parent" and "child" nodes.  The parent node "points" to the child node.
 In a graphical represenatation of a tree, the parent is on top of the child.
-The leaves of the tree are the nodes that don't have any children. (If the tree consists of one node, that node is both a root anda leaf!)
+The leaves of the tree are the nodes that don't have any children. (If the tree consists of one node, that node is both a root and a leaf!)
 A "subtree" is a tree whose root is one of the children of a the node the subtree is being compared to.
 
 ### Branching Factor ###
-The branching factor is the number of children at each non-leaf node.
+The branching factor is the number of children at each non-leaf node. Think of it as the average fertility of a node (how many children it makes).
 This number is not always uniform and so the average branching factor is calculated.
 
 ### What's a linked list? ###
@@ -44,7 +44,7 @@ Balanced Binary Tree: The depth of the left and right subtrees of every node dif
 Degenerate Tree: Is a tree where for each parent node, there is only one associated child node. (Performs like a linked list).
 ```
 ### Performance of Binary Trees ###
-When we don't know the properties of a binary tree, performance is generally poor in the worst case.
+When we don't know the properties of a binary tree, performance can be poor in the worst case. 
 ```
 Note that in the following, n is the number of nodes in the tree.
 space: O(n)
@@ -62,10 +62,8 @@ A binary search tree (BST) is a binary tree where the left subtree contains all 
 the right subtree contains values greater than the node for all nodes and there are no duplicate nodes.
 
 ### Performance Measure ###
-We still don't know if the tree full/complete/perfect, so in the worst case, performance is still poor.
+We still don't know if the tree full/complete/perfect, so in the worst case, performance is still poor. Why? Because a binary tree could just be a linked list which we means we can't take advantage of the binary search capabilities.
 ```
-space: O(n)
-search(Node n)
 space: O(n)
 search(Node n): O(n) 
 delete(Node n): O(n)
@@ -73,7 +71,15 @@ insert(Node n): O(n)
 print_tree: O(n)
 delete_Root: O(1)
 ```
-The average case is improved to O(log n) for many methods though from a general binary tree.
+However, if our tree is rougly balanced (and not just a linked list) then we get very good runtimes O(logn). This is what happens on average.
+```
+space: O(n)
+search(Node n): O(logn) 
+delete(Node n): O(logn)
+insert(Node n): O(logn)
+print_tree: O(n)
+delete_Root: O(1)
+```
 
 ## Traversals ##
 
@@ -85,5 +91,6 @@ Here's what the different depth order traversal methods look like.
 ```
 Pre-order: visit root, traverse left subtree, then traverse right subtree.
 In-order: traverse left subtree, visit root, then traverse right subtree.
-Post-order: visit root, traverse left subtree, then traverse right subtree.
+Post-order: traverse left subtree, then traverse right subtree, and then finally visit the root.
 ```
+Confused? Maybe some animation will help. Go to https://www.khanacademy.org/cs/depth-first-traversals-of-binary-trees/934024358 for and watch the respective animations for pre-order, in-order, and post-order traversal.
