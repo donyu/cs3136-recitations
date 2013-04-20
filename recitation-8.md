@@ -72,7 +72,7 @@ For each of the following questions, determine if it is one of the
 following results and write out the output of the program if it is GOOD. You do not have to write any output if the program is broken or bad.
 
 - GOOD: The program runs valgrind-clean
-- BAD: Valgrind repors memory error or leak
+- BAD: Valgrind reports memory error or leak
 - BROKEN: Does not compile
 
 a)  
@@ -152,3 +152,9 @@ d)
     return s;
   }
 ```
+
+## Answers ##
+1. BAD - never free heap allocated MyString p
+2. BAD - stack allocated MyString p in function will disappear after function call returns
+3. BAD - delete never happens because it comes after the return from function
+4. BROKEN - mystery function must be marked as friend in order to access private m variable in MyStery objects.
