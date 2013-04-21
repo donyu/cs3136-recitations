@@ -8,7 +8,7 @@ Function templates are special functions that can operate with generic types.
 This allows us to create a function template whose functionality can be adapted to 
 more than one type or class without repeating the entire code for each type.
 
-### Sample function template declaration ###
+### Sample function template: Merge Sort ###
 Remember how we wrote mergesort for a char array in lab 1?  What if we could write it for ANY kind of array?
 ```c
 template <typename T>
@@ -61,6 +61,7 @@ void merge_sort(T a[], int n)
     a[i] = temp[i];
 }
 
+template <typename T>
 void merge(T a1[], int n1, T a2[], int n2, T output[])
 {
   int i1 = 0;
