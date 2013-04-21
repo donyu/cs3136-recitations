@@ -97,3 +97,53 @@ void merge(T a1[], int n1, T a2[], int n2, T output[])
     output[j++] = a2[i2++];
 }
 ```
+
+### Some things to remember with templates ###
+```
+  -Always need "template <typename T>" before function declaration/definition.
+  -The function will only work with classes and types for which all functions/operators used in the function are defined.
+```
+
+### Difference between templates and void * ###
+```
+  Templates enable generic programming for all types while void * enables a typless programming.
+  With templates, the programming is type-safe, so the compiler will catch type mismatches (things to remember #2).
+  With void *, the programming is not type-safe, so seg-faults catch type mismatches :(.
+  Templates enable value semantics, but with void * you are forced to use pointer semantics.
+```
+
+### STL Containers ###
+The C++ Standard Template Library comes with built-in classes that contain data defined by templates.
+
+These classes are based on different data structures and are called containers.
+
+There are 3 different types of containers: sequence containers, container adapters, and associative containers.
+
+We will focus on the 3 sequence containers: vector, deque, and list.
+
+Good thing about these container fellas: they "contain" objects of type T "by value".  Don't have to do too much garbage collecting.  Elements of container are destroyed when container is destroyed.
+
+### vector ###
+```
+  -an array
+  -Provides efficient random access (operator[]) and adding/removing elements from the end of the vector (push_back()/pop_back()).
+  -Supports item additions & removals at positions other than the end
+    of the vector (insert()/remove()), but they are inefficient
+    because other items need to be moved.
+```
+### deque ###
+```
+  - short for double-ended queue, pronounced "deck"
+  - similar to vector, but unlike vector, deque supports efficient
+    addition & removal of elements from the beginning of the deque
+    (push_front()/pop_front()).
+  - slower and/or wastes more memory than vector
+```
+### list ###
+```
+  - doubly linked list
+  - efficient insertion & removal of elements anywhere in the list
+  - no random access
+```
+
+### iterators ###
