@@ -162,25 +162,23 @@ Good thing about these container fellas: they "contain" objects of type T "by va
 
 ### Iterators ###
   The sequential containers have iterators to keep track of elements.
-```
-  - "iterator" and "const_iterator" is a "type member" (i.e., a
+  * "iterator" and "const_iterator" is a "type member" (i.e., a
     typedef defined inside a class)
-  - An iterator behaves like a pointer: ++it, *it.  Sometimes it’s
+  * An iterator behaves like a pointer: ++it, *it.  Sometimes it’s
     actully a pointer (vector<T>::iterator is just a typedef of T*),
     but more often it’s not.  (Think about what a list<T>::iterator
     would have to do when you increment it.)
-  - Dereferencing an iterator gives you a T&, and dereferencing a
+  * Dereferencing an iterator gives you a T&, and dereferencing a
     const_iterator gives you a const T&.
-  - v.begin() returns an iterator that points to the first element in
+  * v.begin() returns an iterator that points to the first element in
     the vector.
-  - v.end() returns an iterator that points to ONE PAST THE LAST
+  * v.end() returns an iterator that points to ONE PAST THE LAST
     ELEMENT, not the last element.  It is used as a marker for the end
     of the container, and it cannot be dereferenced.
-  - Note that we use "!=" rather than "<" in the for loop.  This is
+  * Note that we use "!=" rather than "<" in the for loop.  This is
     recommended (especially if you’re writing template code) because
     not all iterators define operator<().  (list iterator does not,
     for example.)
-  - Note that we use ++it rather than it++.  This is recommended
+  * Note that we use ++it rather than it++.  This is recommended
     because when the iterator is a class object rather than a native
     pointer, it’s usually less costly to call ++it than it++.
-```
