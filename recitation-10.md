@@ -126,19 +126,39 @@ Good thing about these container fellas: they "contain" objects of type T "by va
   * Provides efficient random access (operator[]) and adding/removing elements from the end of the vector (push_back()/pop_back()).
   * Supports item additions & removals at positions other than the end of the vector (insert()/remove()), but they are inefficient because other items need to be moved.
 
+  Here an example of using a vector
+  ```c
+  #include <vector>
+  #include <string>
+  #include <iostream>
+  using namespace std;
+
+  int main(int argc, char **argv) {
+
+    vector<string> str_vector;
+    str_vector.push_back("hello");
+    str_vector.insert(str_vector.begin(), "world");
+
+    // print out contents now
+    for (unsigned i = 0; i < str_vector.size(); i++) {
+      cout << str_vector[i] << endl;
+    }
+
+    return 0;
+  }
+  ```
+
 ### deque ###
   * short for double-ended queue, pronounced "deck"
   * similar to vector, but unlike vector, deque supports efficient
     addition & removal of elements from the beginning of the deque
     (push_front()/pop_front()).
   * slower and/or wastes more memory than vector
-  
+
 ### list ###
-```
-  - doubly linked list
-  - efficient insertion & removal of elements anywhere in the list
-  - no random access
-```
+  * doubly linked list
+  * efficient insertion & removal of elements anywhere in the list
+  * no random access
 
 ### Iterators ###
   The sequential containers have iterators to keep track of elements.
