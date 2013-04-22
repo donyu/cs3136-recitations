@@ -99,18 +99,16 @@ void merge(T a1[], int n1, T a2[], int n2, T output[])
 ```
 
 ### Some things to remember with templates ###
-```
-  -Always need "template <typename T>" before function declaration/definition.
-  -The function will only work with classes and types for which all functions/operators used in the function are defined.
-```
+
+  *Always need "template <typename T>" before function declaration/definition.
+  *The function will only work with classes and types for which all functions/operators used in the function are defined.
 
 ### Difference between templates and void * ###
-```
-  Templates enable generic programming for all types while void * enables a typless programming.
-  With templates, the programming is type-safe, so the compiler will catch type mismatches (things to remember #2).
-  With void *, the programming is not type-safe, so seg-faults catch type mismatches :(.
-  Templates enable value semantics, but with void * you are forced to use pointer semantics.
-```
+
+  *Templates enable generic programming for all types while void * enables a typless programming.
+  *With templates, the programming is type-safe, so the compiler will catch type mismatches (things to remember #2).
+  *With void *, the programming is not type-safe, so seg-faults catch type mismatches :(.
+  *Templates enable value semantics, but with void * you are forced to use pointer semantics.
 
 ### STL Containers ###
 The C++ Standard Template Library comes with built-in classes that contain data defined by templates.
