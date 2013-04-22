@@ -100,8 +100,8 @@ void merge(T a1[], int n1, T a2[], int n2, T output[])
 
 ### Some things to remember with templates ###
 
-  *Always need "template <typename T>" before function declaration/definition.
-  *The function will only work with classes and types for which all functions/operators used in the function are defined.
+  * Always need "template <typename T>" before function declaration/definition.
+  * The function will only work with classes and types for which all functions/operators used in the function are defined.
 
 ### Difference between templates and void * ###
 
