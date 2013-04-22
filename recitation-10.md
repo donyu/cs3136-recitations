@@ -182,3 +182,12 @@ Good thing about these container fellas: they "contain" objects of type T "by va
   * Note that we use ++it rather than it++.  This is recommended
     because when the iterator is a class object rather than a native
     pointer, it’s usually less costly to call ++it than it++.
+
+    Below is some sample code on using an iterator to print the contents of a vector<string> v.
+
+    ```c
+    typename vector<string>::const_iterator it;
+    for (it = v.begin(); it != v.end(); it++) {
+      cout << *it << " ";
+    }
+    ```
